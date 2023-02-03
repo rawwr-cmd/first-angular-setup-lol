@@ -6,16 +6,20 @@ addNumber(1, 2);
 let items = [null, undefined, 89, 'hi hello'];
 
 // Objects
-const account: {
+
+interface IAccount {
   name: string;
   age: number;
   status?: string;
-} = {
+  deposit?: (amount: number) => void;
+}
+
+const account: IAccount = {
   name: 'Luis',
   age: 70,
 };
 
-let accounts: {}[];
+let accounts: IAccount[];
 
 accounts = [
   {
@@ -23,3 +27,8 @@ accounts = [
     age: 70,
   },
 ];
+
+class InvestmentAccount implements IAccount {
+  constructor(public name: string, public age: number) {}
+  private withdraw() {}
+}
